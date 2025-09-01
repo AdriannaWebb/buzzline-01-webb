@@ -134,3 +134,16 @@
 2025-08-31 20:51:16.711 | INFO     | __main__:main:114 - I just loved a meme! It was boring.
 2025-08-31 20:51:19.711 | INFO     | __main__:main:114 - I just found a movie! It was amazing.
 2025-08-31 20:51:22.712 | INFO     | __main__:main:114 - I just shared a story! It was amazing.
+2025-08-31 21:07:22.538 | INFO     | utils.utils_logger:<module>:38 - Logging to file: logs\project_log.log
+2025-08-31 21:07:22.538 | INFO     | __main__:main:121 - START Kansas City traffic producer...
+2025-08-31 21:07:22.538 | INFO     | __main__:main:122 - Hit CTRL c (or CMD c) to close.
+2025-08-31 21:07:22.539 | INFO     | __main__:get_message_interval:54 - Messages will be sent every 3 seconds.
+2025-08-31 21:07:22.539 | INFO     | __main__:main:129 - Traffic on I-70 southbound is moderate near Union Station
+2025-08-31 21:07:25.540 | INFO     | __main__:main:129 - Current travel time on I-70 westbound at Grandview Triangle: 66 minutes
+2025-08-31 21:07:28.541 | INFO     | __main__:main:129 - Traffic on I-70 eastbound is moderate downtown
+2025-08-31 21:07:31.542 | INFO     | __main__:main:129 - Traffic on I-35 eastbound is flowing near Union Station
+2025-08-31 21:07:34.543 | INFO     | __main__:main:129 - Current travel time on I-435 northbound near KCI Airport: 85 minutes
+2025-08-31 21:07:37.544 | INFO     | __main__:main:129 - Traffic on I-35 eastbound is heavy near KCI Airport
+2025-08-31 21:07:40.546 | INFO     | __main__:main:129 - Traffic on K-10 westbound is moderate near Union Station
+2025-08-31 21:07:43.548 | INFO     | __main__:main:129 - Traffic on I-435 eastbound is congested near the Plaza
+2025-08-31 21:07:46.548 | INFO     | __main__:main:129 - Current travel time on I-35 southbound downtown: 71 minutes

@@ -1,7 +1,8 @@
 """
 custom_producer_webb.py
 
-Generate some streaming buzz messages. 
+Generate streaming Kansas City traffic condition updates.
+Simulates real-time traffic monitoring data for KC area highways.
 """
 
 #####################################
@@ -58,10 +59,13 @@ def get_message_interval() -> int:
 # Define global variables
 #####################################
 
-# Define some lists for generating buzz messages
-ADJECTIVES: list = ["amazing", "funny", "boring", "exciting", "weird"]
-ACTIONS: list = ["found", "saw", "tried", "shared", "loved"]
-TOPICS: list = ["a movie", "a meme", "an app", "a trick", "a story"]
+# Define lists for generating Kansas City traffic updates
+KC_HIGHWAYS: list = ["I-35", "I-70", "I-435", "I-470", "US-71", "US-169", "K-10"]
+TRAFFIC_CONDITIONS: list = ["heavy", "moderate", "light", "stop-and-go", "congested", "flowing"]
+INCIDENTS: list = ["accident", "construction", "stalled vehicle", "road closure", "weather delay"]
+DIRECTIONS: list = ["northbound", "southbound", "eastbound", "westbound"]
+LOCATIONS: list = ["downtown", "near the Plaza", "at Grandview Triangle", "near KCI Airport", 
+                  "at the Mixing Bowl", "near Union Station", "at State Line Road"]
 
 #####################################
 # Define a function to generate buzz messages
@@ -70,20 +74,31 @@ TOPICS: list = ["a movie", "a meme", "an app", "a trick", "a story"]
 
 def generate_messages():
     """
-    Generate a stream of buzz messages.
-
-    This function uses a generator, which yields one buzz at a time.
-    Generators are memory-efficient because they produce items on the fly
-    rather than creating a full list in memory.
-
-    Because this function uses a while True loop, it will run continuously 
-    until we close the window or hit CTRL c (CMD c on Mac/Linux).
+    Generate a stream of Kansas City traffic condition messages.
+    
+    This function uses a generator to yield traffic updates
+    for Kansas City area highways and roads.
     """
     while True:
-        adjective = random.choice(ADJECTIVES)
-        action = random.choice(ACTIONS)
-        topic = random.choice(TOPICS)
-        yield f"I just {action} {topic}! It was {adjective}."
+        highway = random.choice(KC_HIGHWAYS)
+        direction = random.choice(DIRECTIONS)
+        location = random.choice(LOCATIONS)
+        
+        # Generate different types of traffic messages
+        message_type = random.choice(["condition", "incident", "travel_time"])
+        
+        if message_type == "condition":
+            condition = random.choice(TRAFFIC_CONDITIONS)
+            yield f"Traffic on {highway} {direction} is {condition} {location}"
+            
+        elif message_type == "incident":
+            incident = random.choice(INCIDENTS)
+            delay = random.randint(5, 45)
+            yield f"ALERT: {incident.title()} on {highway} {direction} {location} - expect {delay} min delays"
+            
+        else:  # travel_time
+            travel_time = random.randint(15, 90)
+            yield f"Current travel time on {highway} {direction} {location}: {travel_time} minutes"
 
 
 #####################################
@@ -103,7 +118,7 @@ def main() -> None:
     that explains what the function does.
     """
 
-    logger.info("START producer...")
+    logger.info("START Kansas City traffic producer...")
     logger.info("Hit CTRL c (or CMD c) to close.")
     
     # Call the function we defined above to get the message interval
