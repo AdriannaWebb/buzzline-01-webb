@@ -20,7 +20,6 @@ from utils.utils_logger import logger, get_log_file_path
 # Define a function to process a single message
 # #####################################
 
-
 def process_message(log_file) -> None:
     """
     Read a log file and process each message.
@@ -52,27 +51,10 @@ def process_message(log_file) -> None:
             message = line.strip()
             print(f"Consumed log message: {message}")
 
-            # Monitor and alert on critical traffic conditions
-            if "ALERT:" in message:
-                print(f"TRAFFIC INCIDENT DETECTED: {message}")
-                logger.warning(f"TRAFFIC INCIDENT: {message}")
-            elif "heavy" in message or "stop-and-go" in message or "congested" in message:
-                print(f"HEAVY TRAFFIC WARNING: {message}")
-                logger.warning(f"HEAVY TRAFFIC: {message}")
-            elif any(highway in message for highway in ["I-35", "I-70", "I-435"]):
-                # Alert on major highways
-                if "travel time" in message:
-                    # Extract travel time if it's over 60 minutes
-                    try:
-                        time_part = message.split(":")[-1].strip()
-                        if "minutes" in time_part:
-                            minutes = int(time_part.split()[0])
-                            if minutes > 60:
-                                print(f"LONG TRAVEL TIME ALERT: {message}")
-                                logger.warning(f"LONG TRAVEL TIME: {message}")
-                    except (ValueError, IndexError):
-                        pass  # Skip if we can't parse the time
-
+            # monitor and alert on special conditions
+            if "I just loved a movie! It was funny." in message:
+                print(f"ALERT: The special message was found! \n{message}")
+                logger.warning(f"ALERT: The special message was found! \n{message}")
 
 #####################################
 # Define main function for this script.
