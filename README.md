@@ -18,14 +18,6 @@ py -m pip install --upgrade pip setuptools wheel
 py -m pip install --upgrade -r requirements.txt
 ```
 
-Mac/Linux:
-```zsh
-python3 -3.11 -m venv .venv
-source .venv/bin/activate
-python3 -m pip install --upgrade pip setuptools wheel
-python3 -m pip install --upgrade -r requirements.txt
-```
-
 ## Running the Custom Traffic System
 
 ### Start the Traffic Producer (Terminal 1)
@@ -36,24 +28,12 @@ Windows:
 py -m producers.custom_producer_webb
 ```
 
-Mac/Linux:
-```zsh
-source .venv/bin/activate
-python3 -m producers.custom_producer_webb
-```
-
 ### Start the Traffic Consumer (Terminal 2)
 
 Windows:
 ```shell
 .venv\Scripts\activate
 py -m consumers.custom_consumer_webb
-```
-
-Mac/Linux:
-```zsh
-source .venv/bin/activate
-python3 -m consumers.custom_consumer_webb
 ```
 
 ## What It Does
@@ -65,6 +45,8 @@ python3 -m consumers.custom_consumer_webb
 
 Press `Ctrl+C` in each terminal to stop the processes.
 
-## License
 
-MIT License - See [LICENSE](LICENSE.txt) file.
+## License
+This project is licensed under the MIT License as an example project. 
+You are encouraged to fork, copy, explore, and modify the code as you like. 
+See the [LICENSE](LICENSE.txt) file for more.
